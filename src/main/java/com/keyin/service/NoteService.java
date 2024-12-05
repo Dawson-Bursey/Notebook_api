@@ -1,5 +1,12 @@
 package com.keyin.service;
 
+import com.keyin.model.Note;
+import com.keyin.repository.NoteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 @Service
 public class NoteService {
     @Autowired
