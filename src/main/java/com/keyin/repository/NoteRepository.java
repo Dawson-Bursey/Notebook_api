@@ -1,4 +1,4 @@
 package com.keyin.repository;
 
-public class NoteRepository {
+public interface NoteRepository extends JpaRepository<Note, Long> {
 }
