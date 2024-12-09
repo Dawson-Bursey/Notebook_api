@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class NoteService {
@@ -27,4 +28,13 @@ public class NoteService {
     public void deleteNoteById(Long id) {
         noteRepository.deleteById(id);
     }
+
+    // Update note
+    public Note updateNote(Long id, Note updatedNote) {
+        Note existingNote = noteRepository.findById(id).orElseThrow(() -> new RuntimeException("Note not found"));
+        existingNote.setTitle(updatedNote.getTitle());
+        existingNote.setContent(updatedNote.getContent());
+        return noteRepository.save(existingNote);
+    }
+
 }
