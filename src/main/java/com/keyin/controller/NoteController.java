@@ -10,7 +10,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/notes")
 @CrossOrigin(origins = "http://localhost:3000")
-
 public class NoteController {
     @Autowired
     private NoteService noteService;
@@ -30,9 +29,8 @@ public class NoteController {
         noteService.deleteNoteById(id);
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}") // Corrected mapping
     public Note getNoteById(@PathVariable Long id) {
         return noteService.getNoteById(id);
     }
-
 }
