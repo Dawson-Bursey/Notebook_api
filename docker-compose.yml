@@ -1,0 +1,26 @@
+version: '3'
+services:
+  myapp-main:
+    image: # add the image name
+    ports:
+      - 8080:8080
+    environment:
+      - spring.datasource.url=jdbc:postgresql://host.docker.internal:5432/ add database name
+      - spring.datasource.password=Keyin2021
+      - spring.datasource.username=root
+      - spring.datasource.driver-class-name=org.postgresql.Driver
+
+  postgres-db:
+    image: postgres:latest
+    container_name: postgres-db
+    environment:
+      POSTGRES_DB: # database name
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: Keyin2021
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
