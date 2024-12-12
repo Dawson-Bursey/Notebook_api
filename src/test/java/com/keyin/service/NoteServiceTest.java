@@ -108,4 +108,3 @@ class NoteServiceTest {
         verify(noteRepository, times(1)).deleteById(1L);
     }
 }
-
